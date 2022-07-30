@@ -2,7 +2,7 @@
 name = "where-is-my-money-api"
 version = "0.1.0"
 description = ""
-authors = ["Mike Lee <mike.lee@partnerstack.com>"]
+authors = ["Mike Lee <mikemunkyu.lee@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
