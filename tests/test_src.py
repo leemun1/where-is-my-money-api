@@ -1,4 +1,4 @@
-from where_is_my_money_api import __version__
+from src import __version__
 
 
 def test_version():
