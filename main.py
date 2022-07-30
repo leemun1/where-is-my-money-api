@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 from src.db import crud, models, schemas
 from src.db.database import SessionLocal, engine 
 
+# TODO: do this with migrations
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
