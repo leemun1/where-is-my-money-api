@@ -1,4 +1,4 @@
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, BigInteger
+from sqlalchemy import BigInteger, Boolean, Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
 
 from .database import Base
@@ -24,7 +24,7 @@ class Item(Base):
     source = Column(String, index=True)
     epoch_date = Column(BigInteger, index=True)
     title = Column(String, index=True)
-    amount = Column(Integer, index=True)
+    amount = Column(BigInteger, index=True)
     category = Column(String, index=True)
     sub_category = Column(String, index=True)
     notes = Column(String, index=True)
