@@ -4,8 +4,14 @@ from pydantic import BaseModel
 
 
 class ItemBase(BaseModel):
+    archived: bool = False
+    source: str
+    epoch_date: int
     title: str
-    description: Union[str, None] = None
+    amount: int
+    category: str
+    sub_category: str
+    notes: Union[str, None] = None
 
 
 class ItemCreate(ItemBase):
@@ -30,7 +36,7 @@ class UserCreate(UserBase):
 
 class User(UserBase):
     id: int
-    is_active: bool
+    archived: bool = False
     items: list[Item] = []
 
     class Config:

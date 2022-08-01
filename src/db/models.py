@@ -1,4 +1,4 @@
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
+from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, BigInteger
 from sqlalchemy.orm import relationship
 
 from .database import Base
@@ -10,7 +10,7 @@ class User(Base):
     id = Column(Integer, primary_key=True, index=True)
     email = Column(String, unique=True, index=True)
     hashed_password = Column(String)
-    is_active = Column(Boolean, default=True)
+    archived = Column(Boolean, default=False)
 
     items = relationship("Item", back_populates="owner")
 
@@ -19,8 +19,15 @@ class Item(Base):
     __tablename__ = "items"
 
     id = Column(Integer, primary_key=True, index=True)
-    title = Column(String, index=True)
-    description = Column(String, index=True)
-    owner_id = Column(Integer, ForeignKey("users.id"))
+    archived = Column(Boolean, default=False)
 
+    source = Column(String, index=True)
+    epoch_date = Column(BigInteger, index=True)
+    title = Column(String, index=True)
+    amount = Column(Integer, index=True)
+    category = Column(String, index=True)
+    sub_category = Column(String, index=True)
+    notes = Column(String, index=True)
+
+    owner_id = Column(Integer, ForeignKey("users.id"))
     owner = relationship("User", back_populates="items")
